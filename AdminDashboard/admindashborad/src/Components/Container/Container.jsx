@@ -1,11 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import { ForgotPassword, Login, Register } from '../../Pages'
+import { ForgotPassword, Login, Register, NotFound } from '../../Pages'
+import Filiere from '../../Pages/Filiere/Filiere'
 
-import Footer from '../../Sections/Footer/Footer'
-import Main from '../../Sections/Main/Main'
-import SideBar from '../../Sections/SideBar/SideBar'
-import TopBar from '../../Sections/TopBar/TopBar'
+import { Footer, Main, SideBar, TopBar } from '../../Sections'
 
 function Container() {
     return (
@@ -20,6 +18,8 @@ function Container() {
                             <Route path="/login" element={<Login/>}/>
                             <Route path="/register" element={<Register/>}/>
                             <Route path="/forgot-password" element={<ForgotPassword/>}/>
+                            <Route path="/*" element={<NotFound/>}/>
+                            <Route path="/allFiliere" element={<Filiere/>}/> 
                         </Routes>
                         
                     </div>

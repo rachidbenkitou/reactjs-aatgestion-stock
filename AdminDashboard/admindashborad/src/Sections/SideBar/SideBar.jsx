@@ -108,8 +108,9 @@ function SideBar() {
                     <div className="bg-white py-2 collapse-inner rounded">
                         <h6 className="collapse-header">Login Screens:</h6>
                         <Link className="collapse-item" to="/login">Login</Link>
-                        <Link className="collapse-item" to="register">Register</Link>
-                        <Link className="collapse-item" to="forgot-password">Forgot Password</Link>
+                        <Link className="collapse-item" to="/register">Register</Link>
+                        <Link className="collapse-item" to="/forgot-password">Forgot Password</Link>
+                        <Link className="collapse-item" to="/allFiliere">ALL Filiere</Link>
                         <div className="collapse-divider"></div>
                         <h6 className="collapse-header">Other Pages:</h6>
                         <a className="collapse-item" href="404.html">404 Page</a>
