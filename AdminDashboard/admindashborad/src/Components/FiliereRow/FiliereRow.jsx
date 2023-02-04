@@ -14,15 +14,6 @@ class FiliereRow extends Component {
         }
     }
     
-    AddFiliere = ()=>{
-        const filiere = { nom: 'test3', filierePrefix:"test2" };
-        axios.post('http://localhost:1010/filieres/save', filiere)
-            .then(response => this.setState({ filiereId: response.data.id }))
-            .catch(error => {
-                this.setState({ errorMessage: error.message });
-                console.error('There was an error!', error);
-            });
-    }
     jobFinished= (filiereId) => {
         const message = filiereId;
         this.props.sendMessage(message);
@@ -54,7 +45,7 @@ class FiliereRow extends Component {
         });
     };
     handelUpdateFiliere(nom,filierePrefix){
-        const { value: formValues } =  Swal.fire({
+        Swal.fire({
             title: 'Mettre à jour le filiere '+nom,
             html:
                 `<input value=${filierePrefix} id="swal-input2" class="swal2-input" placeholder="Entrez le nouveau prefixe">`,

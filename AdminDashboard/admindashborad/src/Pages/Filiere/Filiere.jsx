@@ -14,7 +14,8 @@ class Filiere extends Component {
             filierById:[],
             errorMassage:'',
             selectValue:'tout',
-            refresh:false
+            refresh:false,
+            filiereId:''
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -107,12 +108,23 @@ class Filiere extends Component {
         this.componentDidMount();
     };
 
-    handelAjouterFiliere(){
+    handelAjouterFiliere(nom,prefix){
+        let html
+        if(prefix!==''){
+            html = `<div style="color:red;">Merci de remplir le nom</div>`+
+            `<input value='' style="border-color:red;"  id="swal-input1" class="swal2-input" placeholder="Entrez le nom du Filiere">`+
+            `<input value=${prefix}   id="swal-input2" class="swal2-input" placeholder="Entrez le prefixe">`
+        }else if(nom!==''){
+            html = `<input value=${nom}   id="swal-input1" class="swal2-input" placeholder="Entrez le nom du Filiere">`+
+            `<div style="color:red;">Merci de remplir le prefix</div>`+
+            `<input value='' style="border-color:red;"  id="swal-input2" class="swal2-input" placeholder="Entrez le prefixe">`
+        }else{
+            html = `<input  id="swal-input1" class="swal2-input" placeholder="Entrez le nom du Filiere">`+
+            `<input    id="swal-input2" class="swal2-input" placeholder="Entrez le prefixe">`
+        }
         Swal.fire({
-            title: 'Mettre à jour le filiere ',
-            html:
-                `<input  id="swal-input1" class="swal2-input" placeholder="Entrez le nom du Filiere">`+
-                `<input  id="swal-input2" class="swal2-input" placeholder="Entrez le prefixe">`,
+            title: 'Ajouter le filiere ',
+            html:html,
             focusConfirm: false,
             preConfirm: () => {
                 return [
@@ -122,19 +134,44 @@ class Filiere extends Component {
                 
             }
         }).then((result) => {
-            if (result.value) {
-                // update row in DB
-                const filiere = { nom: result.value[0], filierePrefix:result.value[1] };
-                axios.post('http://localhost:1010/filieres/save', filiere)
-                .then(response => this.setState({ filiereId: response.data.id }))
-                .catch(error => {
-                this.setState({ errorMessage: error.message });
-                console.error('There was an error!', error);
-            });
+            if (result.value[0]==='' ||result.value[1]==='') {
+                swal({
+                    icon: 'warning',
+                    text: 'Merci de remplir le champ',
+                });
 
+                this.handelAjouterFiliere(result.value[0],result.value[1])
+            }else{
+                axios.get(`http://localhost:1010/filieres/find/${result.value[0]}`)
+                .then(response=>{
+                        swal({
+                            icon: 'warning',
+                            text: 'Ce Filiere existe déjà',
+                        })
+                        this.handelAjouterFiliere('',result.value[1])
+                }).catch(error => { 
+                    console.log("from catch")
+                    const filiere = { nom: result.value[0], filierePrefix:result.value[1] };
+                    axios.post('http://localhost:1010/filieres/save', filiere)
+                    .then(response => this.setState({ filiereId: response.data.id }))
+                    Swal.fire(
+                        'Ajouter !',
+                        'Votre filiére a été ajoutée.',
+                        'success'
+                    )
+                    axios.get("http://localhost:1010/filieres/all")
+                    .then(response=>{
+                        this.setState({
+                            filieres:response.data 
+                        })
+                    })
+                    this.componentDidMount()
+                    .catch(error => {
+                        console.error('There was an error!', error);
+                    });
+                })
             }
         });
-        this.componentDidMount()
     }
 
     render (){
@@ -146,7 +183,7 @@ class Filiere extends Component {
                     <h4 className="m-0 font-weight-bold text-primary my-3 ml-2">Gestion des Filières</h4>
                         <div className="card-header py-3 d-flex justify-content-between">
                             <li className=''>
-                                <button onClick={() =>this.handelAjouterFiliere()}  className='btn btn-primary pl-2'>Ajouter</button>
+                                <button onClick={() =>this.handelAjouterFiliere('','')}  className='btn btn-primary pl-2'>Ajouter</button>
                                 <select onChange={this.handleChange} value={this.state.selectValue} className="selectpicker btn btn-primary ml-2">
                                     <option value="toute">Afficher</option>
                                     <option value="toute">toute</option>

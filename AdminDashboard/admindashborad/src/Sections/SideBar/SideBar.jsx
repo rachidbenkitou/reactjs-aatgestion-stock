@@ -29,21 +29,21 @@ function SideBar() {
 
             {/* <!-- Sidebar - Brand --> */}
 
-            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
                 <div className="sidebar-brand-icon rotate-n-15">
                     <i className="fas fa-laugh-wink"></i>
                 </div>
                 <div className="sidebar-brand-text mx-3">React <sup>Spring</sup></div>
-            </a>
+            </Link>
 
             {/* <!-- Divider --> */}
             <hr className="sidebar-divider my-0"/>
 
             {/* <!-- Nav Item - Dashboard --> */}
             <li className="nav-item active">
-                <a className="nav-link" href="index.html">
+                <Link className="nav-link" to="/">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span></Link>
             </li>
 
             {/* <!-- Divider --> */}
