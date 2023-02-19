@@ -1,0 +1,34 @@
+form{
+    border: 4px solid var(--table-header-color);
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    
+}
+.table_header{
+    margin-bottom: 10px;
+}
+.form-row{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+}
+.btnsubmit{
+    text-align: center;
+}
+.ajouter{
+    transition: .3s;
+}
+/* .ajouter:hover{
+    background-color: transparent;
+    color: var(--button-color);
+    outline:1px solid var(--button-color) ;
+} */
+.btn-center{
+    margin: 0 auto;
+}
+.form-main{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}

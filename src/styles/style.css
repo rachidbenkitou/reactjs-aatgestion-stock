@@ -1,0 +1,66 @@
+.table{
+    width: 100%;
+}
+.table_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    /* background-color: var(--table-header-color); */
+    background-image: linear-gradient(to right, #361b2c, #361b2c, #5b3365);  
+
+}
+.table_header p{
+    color: var(--button-color);
+    font-weight: bold;
+    font-size: 20px;
+}
+button{
+    border: none;
+    outline: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    padding: 10px;
+}
+.ajouter{
+    padding: 10px 20px;
+    color: #fff;
+    background-color: var(--button-color);
+    font-weight: bold;
+}
+input{
+    padding:10px 20px ;
+    margin:0px 10px ;
+    outline: 1px solid var(--button-color);
+    border:1px solid var(--button-color) ;
+    border-radius: var(--border-radius) ;
+    color: var(--button-color) ;
+    font-weight: bold;
+}
+::placeholder{
+    color: var(--button-color);
+}
+.tabel_section{
+    height: 650px;
+    overflow: auto;
+}
+
+.form-check-input{
+    outline: none;
+}
+/* td button:nth-child(1){
+    background-color: var(--button-color);
+}
+td button:nth-child(2){
+    background-color: red;
+} */
+.updateButton{
+    background-color: var(--button-color);
+
+}
+.delteButton{
+    background-color: red;
+}
+.confirmButton{
+    background-color: #006400;
+}

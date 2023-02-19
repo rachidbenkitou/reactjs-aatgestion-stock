@@ -1,0 +1,48 @@
+
+.tableMatiere{
+    min-width: 1000px;
+}
+.tab-header{
+    min-width: 1000px;
+}
+.a{
+    /* border: 2px solid red;
+    /* position: absolute; */
+    /* width: 100%;  */
+
+}
+.voir{
+    position: absolute;
+    right: 0;
+    margin-right: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-info{
+    width: 150px;
+    /* background-color: black; */
+}
+.redirect{
+    color: var(--button-color);
+}
+
+.pdf{
+    padding: 10px 30px;
+    margin-left: 5px;
+    color: #fff;
+    background-color: var(--button-color);
+    font-weight: bold;
+    outline: none;
+    border: none;
+}
+.pdf:hover{
+    padding: 10px 30px;
+    margin-left: 5px;
+    color: #fff;
+    background-color: var(--button-color);
+    font-weight: bold;
+    outline: none;
+    border: none;
+}
+

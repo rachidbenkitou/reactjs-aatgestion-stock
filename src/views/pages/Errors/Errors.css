@@ -1,0 +1,34 @@
+.image{
+    width: 350px;
+    height: 300px;
+}
+.wrapper{
+    font-size: 1.5rem;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper h3{
+    color: red;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+}
+.wrapper .btn{
+    /* background-color: var(--first-color-alt); */
+    font-size:1.5rem;
+    padding:20px;
+    text-decoration: none;
+    color:var(--first-color-alt);
+    margin-top: 1rem;
+}
+.wrapper .btn:hover{
+    /* background-color: red; */
+}
+.wrapper .message{
+    font-family: 'Nunito Sans', sans-serif;
+
+}
